@@ -6,6 +6,7 @@ import com.moodjournal.repos.JournalEntryRepos;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -27,10 +28,12 @@ public class journalEntryService {
         return journalEntryRepos.findById(myID).orElse(null);
     }
 
+    @Transactional
     public void saveEntry(JournalEntry journalEntry, String username){
         User user = userLoginService.getUserByUserName(username);
         JournalEntry saved = journalEntryRepos.save(journalEntry);
         user.getJournalEntries().add(saved);
+//        user.setUsername(null);
         userLoginService.saveUser(user);
     }
     public void saveEntry(JournalEntry journalEntry){
