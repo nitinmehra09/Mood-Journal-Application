@@ -6,4 +6,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface UserLoginRepos extends MongoRepository<User, ObjectId> {
     User findAllByUsername(String username);
+
+    User deleteUserByUsername(String username);
 }

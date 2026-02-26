@@ -32,7 +32,7 @@ public class JournalEntryController{
         return new ResponseEntity<List<JournalEntry>>(journalEntry,HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/{myId}")
+    @GetMapping("/id/{myId}")
     public ResponseEntity<JournalEntry> getEntryByID(@PathVariable ObjectId myId){
         JournalEntry journalEntry = journalEntryService.findEntryById(myId);
         if(journalEntry!=null){
