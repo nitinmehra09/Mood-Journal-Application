@@ -25,18 +25,21 @@ public class UserLoginService {
         return userLoginRepos.findAllByUsername(username);
     }
 
-    public void saveUser(User user){
+    public void saveNewUser(User user){
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         user.setRoles(Arrays.asList("USER"));
         userLoginRepos.save(user);
     }
 
-//    public void saveNewUser(User user){
-//        userLoginRepos.save(user);
-//    }
+    public void saveNewAdmin(User user){
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setRoles(Arrays.asList("ADMIN"));
+        userLoginRepos.save(user);
+    }
 
-
-
+    public void saveUser(User user){
+        userLoginRepos.save(user);
+    }
 
     public void deleteUser(User user){
         userLoginRepos.deleteById(user.getId());
