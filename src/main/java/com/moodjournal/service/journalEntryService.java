@@ -9,6 +9,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class journalEntryService {
@@ -24,11 +25,15 @@ public class journalEntryService {
         return journalEntryRepos.findAll();
     }
 
-    public JournalEntry findEntryById(ObjectId myID){
-        return journalEntryRepos.findById(myID).orElse(null);
+    public Optional<JournalEntry> findEntryById(ObjectId myID){
+        return journalEntryRepos.findById(myID);
     }
+//    public Optional<JournalEntry> findEntryById(ObjectId myID){
+//        return journalEntryRepos.findById(myID);
+//    }
 
-    @Transactional
+
+//    @Transactional
     public void saveEntry(JournalEntry journalEntry, String username){
         User user = userLoginService.getUserByUserName(username);
         JournalEntry saved = journalEntryRepos.save(journalEntry);
@@ -46,9 +51,11 @@ public class journalEntryService {
 
     public void deleteEntry(ObjectId myId, String username){
         User user = userLoginService.getUserByUserName(username);
-        user.getJournalEntries().removeIf(x->x.getId().equals(myId));
-        userLoginService.saveUser(user);
-        journalEntryRepos.deleteById(myId);
+        boolean removed = user.getJournalEntries().removeIf(x->x.getId().equals(myId));
+        if(removed) {
+            userLoginService.saveUser(user);
+            journalEntryRepos.deleteById(myId);
+        }
     }
 
 }
