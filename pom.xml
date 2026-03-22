@@ -19,6 +19,7 @@
 	<description>Mood Journal Web App using Spring Boot</description>
 
 	<properties>
+		<sonar.organization>moodjournalapp</sonar.organization>
 		<java.version>17</java.version>
 	</properties>
 
@@ -60,6 +61,13 @@
 
 	<build>
 		<plugins>
+
+			<!-- SonarQube plugin -->
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.7.0.1746</version>
+			</plugin>
 
 			<!-- ✅ Spring Boot Plugin -->
 			<plugin>

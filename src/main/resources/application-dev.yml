@@ -1,0 +1,9 @@
+Spring:
+  Application:
+    name: moodjournal
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: journalDb
+      auto-index-creation: true
