@@ -5,6 +5,8 @@ import com.moodjournal.entities.User;
 import com.moodjournal.service.UserLoginService;
 import com.moodjournal.service.journalEntryService;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +22,8 @@ import java.util.stream.Collectors;
 @RequestMapping("/Home")
 public class JournalEntryController{
 
+    private final Logger logger = LoggerFactory.getLogger(JournalEntryController.class);
+
     @Autowired
     private journalEntryService journalEntryService;
 
@@ -33,8 +37,10 @@ public class JournalEntryController{
         User user = userLoginService.getUserByUserName(username);
         List<JournalEntry> journalEntry = user.getJournalEntries();
         if(!journalEntry.isEmpty()){
+            logger.error("Entities are not empty");
             return new ResponseEntity<List<JournalEntry>>(journalEntry,HttpStatus.FOUND);
         }
+        logger.error("Entity set is empty ");
         return new ResponseEntity<List<JournalEntry>>(journalEntry,HttpStatus.NOT_FOUND);
     }
 

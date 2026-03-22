@@ -24,10 +24,10 @@ public class UserLoginController {
     @Autowired
     private UserLoginRepos userLoginRepos;
 
-//    @GetMapping
-//    public List<User> showAllInfo(){
-//        return userLoginService.getAll();
-//    }
+    @GetMapping
+    public List<User> showAllInfo(){
+        return userLoginService.getAll();
+    }
 
     @DeleteMapping
     public ResponseEntity<?> deleteUser(){
