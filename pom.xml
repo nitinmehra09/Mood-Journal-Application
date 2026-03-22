@@ -19,7 +19,6 @@
 	<description>Mood Journal Web App using Spring Boot</description>
 
 	<properties>
-		<sonar.organization>moodjournalapp</sonar.organization>
 		<java.version>17</java.version>
 	</properties>
 
