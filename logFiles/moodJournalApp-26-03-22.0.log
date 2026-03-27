@@ -145,4 +145,4 @@
 26-03-22 18:03:08.831 [main] INFO  o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer - Global AuthenticationManager configured with UserDetailsService bean with name userDetailsServiceImpl 
 26-03-22 18:03:10.716 [main] INFO  c.m.controller.AdminControllerTests - Started AdminControllerTests in 6.962 seconds (process running for 8.79) 
 26-03-22 18:03:10.877 [main] INFO  o.s.t.c.s.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.moodjournal.MoodjournalApplicationTests]: MoodjournalApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration. 
-26-03-22 18:03:10.919 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.moodjournal.MoodjournalApplication for test class com.moodjournal.MoodjournalApplicationTests 
+26-03-22 18:03:10.919 [main] INFO  o.s.b.t.c.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.moodjournal.MoodjournalApplication for test class com.moodjournal.MoodjournalApplicationTests.
