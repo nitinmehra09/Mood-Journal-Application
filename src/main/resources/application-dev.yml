@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: moodjournal
+  data:
+    redis:
+      url: ${REDIS_URL}
+      ssl:
+        enabled: false
+    mongodb:
+      host: localhost
+      port: 27017
+      database: journalDb
+      auto-index-creation: true
+
+
+  mail:
+    host: ${MAIL_HOST}
+    port: 587
+    username: ${GMAIL_USERNAME}
+    password: ${GMAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth : true
+          starttls:
+            enable: true
+
+weather:
+  api:
+    key: ${WEATHER_API_KEY}
